@@ -1,0 +1,6 @@
+[
+{"model": "restaurants.restaurant", "pk": 1, "fields": {"name": "Hagiel", "street_number": 1, "street": "Testowa", "zip_code": "12-343", "city": "Warsaw", "email": "hagiel_nigdy_smacznie@example.com", "tel_number": "1233345346", "min_purchase": 15}},
+{"model": "restaurants.restaurant", "pk": 2, "fields": {"name": "Maksmak", "street_number": 4, "street": "Testowa", "zip_code": "21-456", "city": "Warsaw", "email": "maksmat_ssie@example.com", "tel_number": "345234456", "min_purchase": 20}},
+{"model": "restaurants.mealcategory", "pk": 1, "fields": {"name": "meat"}}, {"model": "restaurants.mealcategory", "pk": 2, "fields": {"name": "vegan and vege #nohomo"}},
+{"model": "auth.user", "pk": 1, "fields": {"password": "pbkdf2_sha256$120000$AZNSndTLgJr9$KYUwQmN2m1Hn4m+IAQtUSrxu9okvwQN7/2zaEKvRfwc=", "last_login": "2019-01-25T13:36:43.811Z", "is_superuser": true, "username": "admin", "first_name": "", "last_name": "", "email": "admin@example.com", "is_staff": true, "is_active": true, "date_joined": "2019-01-25T13:36:17.519Z", "groups": [], "user_permissions": []}}
+]
