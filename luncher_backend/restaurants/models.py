@@ -4,13 +4,13 @@ from django.db import models
 class Restaurant(models.Model):
 
     name = models.CharField(max_length=100)
-    street_number = models.IntegerField()
-    street = models.CharField(max_length=100)
-    zip_code = models.CharField(max_length=6)
-    city = models.CharField(max_length=100)
+    street_number = models.IntegerField(null=True)
+    street = models.CharField(max_length=100, null=True)
+    zip_code = models.CharField(max_length=6, null=True)
+    city = models.CharField(max_length=100, null=True)
     email = models.EmailField()
-    tel_number = models.CharField(max_length=20)
-    min_purchase = models.IntegerField()
+    tel_number = models.CharField(max_length=20, null=True)
+    min_purchase = models.IntegerField(default=0)
 
     @property
     def address(self):
@@ -53,11 +53,11 @@ class Meal(models.Model):
     )
 
     name = models.CharField(max_length=1000)  # string
-    category = models.ForeignKey(MealCategory, on_delete=models.CASCADE)
+    category = models.ForeignKey(MealCategory, on_delete=models.CASCADE, null=True)
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
     price = models.IntegerField()  # TODO decimal or string or money
     date = models.CharField(choices=DAYS,max_length=100)  # TODO date without time
-    is_active = models.BooleanField()
+    is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return '{} {}'.format(self.name, self.restaurant)

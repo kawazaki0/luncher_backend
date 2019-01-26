@@ -22,3 +22,6 @@ class UserOrder(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     meal = models.ForeignKey(Meal, on_delete=models.CASCADE)
     timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return '{} {}'.format(self.user.username, self.meal.name)
