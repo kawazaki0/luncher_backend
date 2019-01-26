@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class SuppliersConfig(AppConfig):
+class RestaurantsConfig(AppConfig):
     name = 'restaurants'

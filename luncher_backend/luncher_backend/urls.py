@@ -19,8 +19,8 @@ from rest_framework.routers import DefaultRouter
 from restaurants.views import RestaurantViewSet, MealCategoryViewSet
 
 router = DefaultRouter()
-router.register(r'restaurants', RestaurantViewSet, basename='supplier')
-router.register(r'meal_categories', MealCategoryViewSet, basename='dish_category')
+router.register(r'restaurants', RestaurantViewSet, basename='restaurants')
+router.register(r'meal_categories', MealCategoryViewSet, basename='meal_category')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

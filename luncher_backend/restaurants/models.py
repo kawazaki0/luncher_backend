@@ -13,7 +13,7 @@ class Restaurant(models.Model):
     min_purchase = models.IntegerField()
 
     @property
-    def adress(self):
+    def address(self):
         return '{} {} {} {}'.format(self.street, self.street_number, self.city, self.zip_code)
 
     def __str__(self):
@@ -30,7 +30,7 @@ class MealCategory(models.Model):
         return '{}'.format(self.name)
 
     class Meta:
-        db_table = 'mealCategory'
+        db_table = 'meal_category'
 
 
 class Meal(models.Model):
@@ -52,26 +52,15 @@ class Meal(models.Model):
         (SUNDAY,'Sunday')
     )
 
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=1000)  # string
     category = models.ForeignKey(MealCategory, on_delete=models.CASCADE)
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
-    price = models.IntegerField()
-    date = models.CharField(choices=DAYS,max_length=100)
+    price = models.IntegerField()  # TODO decimal or string or money
+    date = models.CharField(choices=DAYS,max_length=100)  # TODO date without time
     is_active = models.BooleanField()
 
     def __str__(self):
-        return '{} {}'.format(self.name, self.supplier)
+        return '{} {}'.format(self.name, self.restaurant)
 
     class Meta:
-        db_table = 'dish'
-
-
-class Location(models.Model):
-    name = models.CharField(max_length=100)
-    is_active = models.BooleanField(default=True)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        db_table='location'
+        db_table = 'meal'
